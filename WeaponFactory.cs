@@ -10,9 +10,17 @@ namespace CommandosProject.Modeles
     {
         Weapon[] weaponArr = 
         {
-            new Weapon("M16", "apple", 40),
-            new Weapon("AK47", "BOOMBOOM", 80),
-            new Weapon("GON", "shootAM", 15)
+            new Weapon("M16", "COLT", 29),
+            new Weapon("AK47", "KALASHNIKOV", 30),
         };
+    }
+
+    public class Stone : WeaponFactory
+    {
+        public string Name;
+        public int Width;
+        public string Status;
+        public int SumBoomBroken;
+        public int SumBoom;
     }
 }
