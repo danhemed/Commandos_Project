@@ -8,6 +8,11 @@ namespace CommandosProject.Modeles
 {
     public class EnemyFactory
     {
-        
+        Enemy[] enemyArr = 
+        {
+            new Enemy("jamil", 100, "life", "I'm Enemy!!!"),
+            new Enemy("hchmed", 100, "life", "I'm Enemy!!!"),
+            new Enemy("muchamad", 100, "life", "I'm Enemy!!!")
+        };
     }
 }
