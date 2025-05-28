@@ -10,9 +10,24 @@ namespace CommandosProject.Modeles
     public class GAME
     {
         EnemyFactory enemys = new EnemyFactory();
-        
-        CommandoFactory commandos =  new CommandoFactory();
-
         Stone stone = new Stone("stone", 5, "white", "whole", 2, 0);
+
+        public void Game()
+        {
+            CommandoFactory createSoldiers = new CommandoFactory();
+            List<Commando> soldiers = createSoldiers.CreateSoldier();
+
+            // pring the soldiers
+            foreach (var soldier in soldiers)
+            {
+                Console.WriteLine();
+                soldier.SayName("general");
+                Console.WriteLine($"CodeName: {soldier.NameCode}");
+                Console.WriteLine($"Status: {soldier.Status}");
+                soldier.Hide();
+                soldier.Attack();
+                Console.WriteLine();
+            }
+        }
     }
 }

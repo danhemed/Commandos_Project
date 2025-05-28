@@ -23,7 +23,14 @@ namespace CommandosProject.Modeles
         public void Shoot()
         {
             Console.WriteLine("Shooting!!!");
-            Bullets -= 1;
+            if (Bullets != 0)
+            {
+                Bullets -= 1;
+            }
+            else
+            {
+                Console.WriteLine("No Bulltes!");
+            }
             Console.WriteLine($"Bullets:{Bullets}");
         }
     }
