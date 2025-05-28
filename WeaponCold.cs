@@ -7,31 +7,57 @@ using System.Threading.Tasks;
 
 namespace CommandosProject.Modeles
 {
-    public class Weapon
+    public class WeaponCold : Weapon
     {
-        public string Name;
-        public string Producer;
-        public int Bullets;
+        public double Width;
+        public string Color;
+        public string Status;
 
-        public Weapon(string name, string producer, int bullets)
+        public WeaponCold(string name, double width, string color, string status) : base(name)
         {
-            Name = name;
-            Producer = producer;
-            Bullets = bullets;
+            Width = width;
+            Color = color;
+            Status = status;
         }
 
-        public void Shoot()
+        public void WeaponBroken()
         {
-            Console.WriteLine("Shooting!!!");
-            if (Bullets != 0)
+            if (Status == "broken")
             {
-                Bullets -= 1;
+                Console.WriteLine("The Weapon is broken");
             }
-            else
+        }
+    }
+
+
+    public class Stone : WeaponCold
+    {
+        public int SumBoom;
+
+        public Stone(string name, double width, string color, string status, int sumBoom) : base( name, width, color, status)
+        {
+            SumBoom = sumBoom;
+        }
+
+        public void SumBoomBroken()
+        {
+            SumBoom++;
+            if (SumBoom > 5)
             {
-                Console.WriteLine("No Bulltes!");
+                Status = "broken";
             }
-            Console.WriteLine($"Bullets:{Bullets}");
+        }
+    }
+
+    public class Knife : WeaponCold
+    {
+        public string TypeMetal;
+        public string Producer;
+
+        public Knife(string name, double width, string color, string status, string typeMetal, string producer) : base(name, width, color, status)
+        {
+            TypeMetal = typeMetal;
+            Producer = producer;
         }
     }
 }

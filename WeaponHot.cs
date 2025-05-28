@@ -7,15 +7,13 @@ using System.Threading.Tasks;
 
 namespace CommandosProject.Modeles
 {
-    public class Weapon
+    public class WeaponHot : Weapon
     {
-        public string Name;
         public string Producer;
         public int Bullets;
 
-        public Weapon(string name, string producer, int bullets)
+        public WeaponHot(string name, string producer, int bullets) : base(name)
         {
-            Name = name;
             Producer = producer;
             Bullets = bullets;
         }
@@ -23,7 +21,7 @@ namespace CommandosProject.Modeles
         public void Shoot()
         {
             Console.WriteLine("Shooting!!!");
-            if (Bullets != 0)
+            if (Bullets > 0)
             {
                 Bullets -= 1;
             }
