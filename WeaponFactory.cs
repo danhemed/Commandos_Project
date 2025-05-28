@@ -8,47 +8,40 @@ namespace CommandosProject.Modeles
 {
     public class WeaponFactory
     {
-        public string Name;
-        public int Width;
-        public string Color;
-        public string Status;
-
-        public WeaponFactory(string name, int width, string color, string status)
+        public List<Weapon> CreateWeapons()
         {
-            Name = name;
-            Width = width;
-            Color = color;
-            Status = status;
-        }
+            List<Weapon> weapons = new List<Weapon>();
 
-        Weapon[] weaponArr =
-        {
-            new Weapon("M16", "COLT", 29),
-            new Weapon("AK47", "KALASHNIKOV", 30),
-        };
-    }
-
-    public class Stone : WeaponFactory
-    {
-        public int SumBoomBroken;
-        public int SumBoom;
-
-        public Stone(string name, int width, string color, string status, int sumBoomBroken, int sumBoom) : base(name, width, color, status)
-        {
-            SumBoomBroken = sumBoomBroken;
-            SumBoom = sumBoom;
-        }
-    }
-
-    public class Knife : WeaponFactory
-    {
-        public string TypeMetal;
-        public string Producer;
-
-        public Knife(string name, int width, string color, string status, string typeMetal, string producer) : base(name, width, color, status)
-        {
-            TypeMetal = typeMetal;
-            Producer = producer;
+            bool swape = true;
+            while (swape)
+            {
+                Console.WriteLine("Enter your Weapon to make (1. Stone, 2. Knife, 3. M16, 4. AK47, 5. Exit): ");
+                int option = int.Parse(Console.ReadLine());
+                switch (option)
+                {
+                    case 1:
+                        weapons.Add(new Stone("stone", 3.5, "white", "whole", 0));
+                        Console.WriteLine("makeing Stone Weapon!");
+                        break;
+                    case 2:
+                        weapons.Add(new Knife("Knife", 3.5, "white", "whole", "steel", "MODO"));
+                        Console.WriteLine("makeing Knife Weapon!");
+                        break;
+                    case 3:
+                        weapons.Add(new WeaponHot("M16", "COLT", 29));
+                        Console.WriteLine("makeing M16 Weapon!");
+                        break;
+                    case 4:
+                        weapons.Add(new WeaponHot("AK47", "KALASHNIKOV", 30));
+                        Console.WriteLine("makeing AK47 Weapon!");
+                        break;
+                    case 5:
+                        swape = false;
+                        Console.WriteLine("Exit...");
+                        break;
+                }
+            }
+            return weapons;
         }
     }
 }

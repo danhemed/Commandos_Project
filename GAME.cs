@@ -10,12 +10,13 @@ namespace CommandosProject.Modeles
     public class GAME
     {
         EnemyFactory enemys = new EnemyFactory();
-        Stone stone = new Stone("stone", 5, "white", "whole", 2, 0);
-
         public void Game()
         {
             CommandoFactory createSoldiers = new CommandoFactory();
             List<Commando> soldiers = createSoldiers.CreateSoldier();
+
+            WeaponFactory createWeapons = new WeaponFactory();
+            List<Weapon> weapons = createWeapons.CreateWeapons();
 
             // pring the soldiers
             foreach (var soldier in soldiers)
@@ -28,6 +29,17 @@ namespace CommandosProject.Modeles
                 soldier.Attack();
                 Console.WriteLine();
             }
+
+            // print the Weapons
+            foreach (var weapon in weapons)
+            {
+                Console.WriteLine();
+                Console.WriteLine($"Weapon name: {weapon.Name}");
+                weapon.Damage(weapon);
+                Console.WriteLine();
+            }
+
+
         }
     }
 }

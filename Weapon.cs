@@ -10,28 +10,26 @@ namespace CommandosProject.Modeles
     public class Weapon
     {
         public string Name;
-        public string Producer;
-        public int Bullets;
 
-        public Weapon(string name, string producer, int bullets)
+        public Weapon(string name)
         {
             Name = name;
-            Producer = producer;
-            Bullets = bullets;
         }
 
-        public void Shoot()
+        public int Damage(Weapon weapon)
         {
-            Console.WriteLine("Shooting!!!");
-            if (Bullets != 0)
+            if (weapon is WeaponCold)
             {
-                Bullets -= 1;
+                return 40;
+            }
+            else if (weapon is WeaponHot)
+            {
+                return 70;
             }
             else
             {
-                Console.WriteLine("No Bulltes!");
+                return 0;
             }
-            Console.WriteLine($"Bullets:{Bullets}");
         }
     }
 }
