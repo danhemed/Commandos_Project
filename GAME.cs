@@ -13,7 +13,6 @@ namespace CommandosProject.Modeles
         
         CommandoFactory commandos =  new CommandoFactory();
 
-        WeaponFactory weapons = new WeaponFactory();
+        Stone stone = new Stone("stone", 5, "white", "whole", 2, 0);
     }
-
 }
