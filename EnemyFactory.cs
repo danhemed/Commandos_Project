@@ -8,11 +8,28 @@ namespace CommandosProject.Modeles
 {
     public class EnemyFactory
     {
-        Enemy[] enemyArr = 
+        string name = "enemy";
+        int healthBar = 100;
+        string status = "life";
+        string shout = "I'm enemy";
+
+        public List<Enemy> CreateEnemys()
         {
-            new Enemy("jamil", 100, "life", "I'm Enemy!!!"),
-            new Enemy("hchmed", 100, "life", "I'm Enemy!!!"),
-            new Enemy("muchamad", 100, "life", "I'm Enemy!!!")
-        };
+            Random random = new Random();
+            List<Enemy> enemys = new List<Enemy>();
+
+            Console.WriteLine("Enter how much enemys you want: ");
+            string? input = Console.ReadLine();
+            int choise;
+            if (int.TryParse(input, out choise))
+            {
+                while (choise > 0)
+                {
+                    enemys.Add(new Enemy(name + random.Next(0, 100), healthBar, status, shout));
+                    choise--;
+                }
+            }
+            return enemys;
+        }
     }
 }
