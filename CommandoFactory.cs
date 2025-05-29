@@ -18,7 +18,7 @@ namespace CommandosProject.Modeles
         string status = "stand";
 
 
-        public List<Commando> CreateSoldier()
+        public List<Commando> CreateSoldiers()
         {
             Random random = new Random();
             List<Commando> soliders = new List<Commando>();
@@ -27,26 +27,30 @@ namespace CommandosProject.Modeles
             while (swape)
             {
                 Console.WriteLine("Enter your Soldier to make (1. Commando, 2. AirCommando, 3. SeaCommando, 4. Exit): ");
-                int option = int.Parse(Console.ReadLine());
-                switch (option)
+                string? input = Console.ReadLine();
+                int choise;
+                if (int.TryParse(input, out choise))
                 {
-                    case 1:
-                        soliders.Add(new Commando(name + random.Next(1, 100), $"{nameCodeC}{random.Next(1, 100)}", tools, status));
-                        Console.WriteLine("makeing Soldier Commando!");
-                        break;
+                    switch (choise)
+                    {
+                        case 1:
+                            soliders.Add(new Commando(name + random.Next(1, 100), $"{nameCodeC}{random.Next(1, 100)}", tools, status));
+                            Console.WriteLine("makeing Soldier Commando!");
+                            break;
 
-                    case 2:
-                        soliders.Add(new AirCommando(name + random.Next(1, 100), $"{nameCodeA}{random.Next(1, 100)}", tools, status));
-                        Console.WriteLine("makeing Soldier AirCommando!");
-                        break;
+                        case 2:
+                            soliders.Add(new AirCommando(name + random.Next(1, 100), $"{nameCodeA}{random.Next(1, 100)}", tools, status));
+                            Console.WriteLine("makeing Soldier AirCommando!");
+                            break;
 
-                    case 3:
-                        soliders.Add(new SeaCommando(name + random.Next(1, 100), $"{nameCodeS}{random.Next(1, 100)}", tools, status));
-                        Console.WriteLine("makeing Soldier SeaCommando!");
-                        break;
-                    case 4:
-                        swape = false;
-                        break;
+                        case 3:
+                            soliders.Add(new SeaCommando(name + random.Next(1, 100), $"{nameCodeS}{random.Next(1, 100)}", tools, status));
+                            Console.WriteLine("makeing Soldier SeaCommando!");
+                            break;
+                        case 4:
+                            swape = false;
+                            break;
+                    }
                 }
             }
             return soliders;
